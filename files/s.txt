@@ -1,0 +1,5 @@
+# used for manual accounting records..nothing
+#  writes here but you
+# Format:
+# username    balance     paid     expires #
+------------|-----------|---------|---------

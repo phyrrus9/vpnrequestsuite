@@ -11,9 +11,9 @@
 	</head>
 
 	<nav>
-		<a href="admin.php?action=list">List Users</a> | <a href="admin.php?action=queue">Queue</a> | <a href="admin.php?action=expire">Expire Users</a> |
-		<a href="admin.php?action=unexpire">Unexpire Users</a> | <a href="admin.php?action=accept">Accept Users</a> | <a href="admin.php?action=tickets">View Tickets</a> |
-		<a href="login.php">Log Out</a>
+		<a href="admin.php?action=list">List Users</a> | <a href="admin.php?action=online">Online Users</a> | <a href="admin.php?action=queue">Queue</a> |
+		<a href="admin.php?action=expire">Expire Users</a> | <a href="admin.php?action=unexpire">Unexpire Users</a> |
+		<a href="admin.php?action=accept">Accept Users</a> | <a href="admin.php?action=tickets">View Tickets</a> | <a href="login.php">Log Out</a>
 	</nav>
 
 	<body>
@@ -23,6 +23,12 @@
 				case "list":
 					echo "<pre>";
 					passthru("/requests/bin/userlist", $ret);
+					echo "</pre>";
+					break;
+				case "online":
+					echo "<u>Currently online users</u><br />";
+					echo "<pre>";
+					passthru("last | grep ppp | grep still", $ret);
 					echo "</pre>";
 					break;
 				case "tickets":
